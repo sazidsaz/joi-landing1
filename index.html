@@ -69,11 +69,25 @@
 
   /* HERO — full bleed background photo, dark overlay, big italic serif headline */
   .hero{position:relative;background:var(--ink);color:#fff;overflow:hidden;}
-  .hero-bg{position:absolute;inset:0;background-image:url('https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/Sdx4lqu7HH8yhHznavCZ/media/d3328c27-2181-498f-a1ab-bfb58aa3b1eb.jpeg');background-size:cover;background-position:center 20%;}
-  .hero-bg:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,.55) 0%,rgba(26,26,26,.72) 55%,rgba(26,26,26,.9) 100%);}
-  .hero-inner{position:relative;z-index:2;text-align:center;padding:clamp(90px,13vw,140px) 0 clamp(80px,10vw,120px);}
-  .hero img.mark{height:96px;width:auto;margin:0 auto 26px;}
+  .hero-bg{position:absolute;inset:0;background-image:url('https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/Sdx4lqu7HH8yhHznavCZ/media/d3328c27-2181-498f-a1ab-bfb58aa3b1eb.jpeg');background-size:cover;background-position:center 12%;}
+  /* Lighter at the top so her face stays visible; darkens lower where the copy sits */
+  .hero-bg:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,.30) 0%,rgba(26,26,26,.34) 30%,rgba(26,26,26,.62) 50%,rgba(26,26,26,.88) 68%,rgba(26,26,26,.95) 100%);}
+  .hero-inner{position:relative;z-index:2;text-align:center;padding:clamp(150px,24vw,300px) 0 clamp(80px,10vw,120px);}
+  .hero img.mark{height:82px;width:auto;margin:0 auto 22px;}
   .hero h1{max-width:16ch;margin:0 auto;color:#fff;}
+
+  /* HERO COPY — custom-sized lines below the face */
+  .hero-copy{max-width:680px;margin:6px auto 0;text-align:left;}
+  .hero-copy .hl{display:flex;gap:14px;align-items:flex-start;padding:14px 0;line-height:1.4;}
+  .hero-copy .hl+.hl,.hero-copy .hero-para+.hl,.hero-copy .hl+.hero-para{border-top:1px solid rgba(255,255,255,.14);}
+  .hero-copy .hl .ic-svg{margin-top:3px;color:#fff;}
+  .hero-copy .hl-lg{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(24px,3.6vw,36px);line-height:1.15;}
+  .hero-copy .hl-lg .ic-svg{width:36px;height:36px;}
+  .hero-copy .hl-md{font-family:var(--body);font-style:italic;font-weight:500;font-size:clamp(18px,2.3vw,24px);}
+  .hero-copy .hl-md .ic-svg{width:29px;height:29px;}
+  .hero-copy .hl-sm{font-family:var(--body);font-size:clamp(16px,1.9vw,19px);}
+  .hero-copy .hl-sm .ic-svg{width:26px;height:26px;}
+  .hero-copy .hero-para{padding:16px 0;font-family:var(--body);font-size:clamp(16px,1.9vw,18.5px);line-height:1.75;color:rgba(255,255,255,.9);border-top:1px solid rgba(255,255,255,.14);}
 
   /* TWO COLUMN */
   .split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,5vw,70px);align-items:center;}
@@ -82,13 +96,13 @@
   .frame-wrap{order:2;}
   @media (max-width:820px){ .frame-wrap{order:-1;max-width:420px;margin:0 auto;} }
 
-  /* ICON LINE LISTS — short lines with brand-colored SVG line icons */
-  .ic-svg{flex:0 0 auto;display:block;}
+  /* ICON LINE LISTS — line icons inherit the adjacent text color via currentColor */
+  .ic-svg{flex:0 0 auto;display:block;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
   .lines{max-width:720px;margin:4px auto 0;text-align:left;list-style:none;}
   .lines li{display:flex;gap:16px;align-items:flex-start;padding:14px 0;font-family:var(--body);font-size:clamp(15.5px,1.8vw,18px);line-height:1.5;}
   .lines li+li{border-top:1px solid rgba(255,255,255,.1);}
   .lines.on-light li+li{border-top:1px solid rgba(26,26,26,.1);}
-  .lines .ic-svg{width:26px;height:26px;color:var(--peach);margin-top:1px;}
+  .lines .ic-svg{width:26px;height:26px;margin-top:1px;}
   .lines .hi{font-style:italic;font-weight:600;color:#fff;}
   .lines.on-light .hi{color:var(--ink);}
 
@@ -96,14 +110,14 @@
   .imagine{max-width:720px;margin:0 auto;list-style:none;text-align:left;}
   .imagine li{display:flex;gap:18px;align-items:center;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(18px,2.4vw,26px);line-height:1.4;padding:16px 0;border-bottom:1px solid rgba(26,26,26,.14);}
   .imagine li:last-child{border-bottom:0;}
-  .imagine .ic-svg{width:30px;height:30px;color:var(--green);}
+  .imagine .ic-svg{width:30px;height:30px;}
 
   /* FEATURES */
   .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:54px;text-align:left;}
   .card{background:#fff;border-top:4px solid var(--peach);border-radius:4px;padding:40px 36px;box-shadow:0 12px 40px -30px rgba(26,26,26,.5);transition:transform .3s ease,box-shadow .3s ease;}
   .card:hover{transform:translateY(-5px);box-shadow:0 26px 60px -34px rgba(26,26,26,.55);}
-  .card .ic{line-height:0;margin-bottom:18px;}
-  .card .ic-svg{width:38px;height:38px;color:var(--peach);}
+  .card .ic{line-height:0;margin-bottom:18px;color:var(--ink);}
+  .card .ic-svg{width:38px;height:38px;}
   .card h3{font-family:var(--display);font-weight:700;font-size:23px;line-height:1.2;margin-bottom:12px;}
   .card p{font-family:var(--body);font-size:16px;color:#4a4a4a;line-height:1.65;}
 
@@ -111,8 +125,8 @@
   .checklist{max-width:560px;margin:0;text-align:left;}
   .checklist li{list-style:none;display:flex;gap:16px;align-items:flex-start;padding:17px 0;border-bottom:1px solid rgba(122,149,143,.3);font-family:var(--body);font-style:italic;font-size:clamp(16.5px,1.9vw,20px);}
   .checklist li:last-child{border-bottom:0;}
-  .checklist .star{color:var(--peach);flex:0 0 auto;line-height:0;margin-top:3px;}
-  .checklist .ic-svg{width:24px;height:24px;color:var(--peach);}
+  .checklist .star{flex:0 0 auto;line-height:0;margin-top:3px;color:var(--ink);}
+  .checklist .ic-svg{width:24px;height:24px;}
 
   /* PRICE — split layout with photos flanking */
   .price-split{display:grid;grid-template-columns:.8fr 1.4fr .8fr;gap:clamp(24px,4vw,44px);align-items:center;margin-top:54px;}
@@ -195,17 +209,14 @@
       <p class="eyebrow" style="color:var(--peach)">A Faith-Centered Community for Women</p>
       <h1>Welcome to Ride High Society</h1>
       <hr class="rule">
-      <ul class="lines">
-        <li><svg class="ic-svg"><use href="#ic-trophy"/></svg><span><span class="hi">Congratulations! You did it.</span></span></li>
-        <li><svg class="ic-svg"><use href="#ic-check"/></svg><span>Over the last 30 days, you made a promise to yourself—and you kept it!</span></li>
-        <li><svg class="ic-svg"><use href="#ic-calendar"/></svg><span>You planned ahead.</span></li>
-        <li><svg class="ic-svg"><use href="#ic-activity"/></svg><span>You moved your body.</span></li>
-        <li><svg class="ic-svg"><use href="#ic-leaf"/></svg><span>You fueled yourself intentionally.</span></li>
-        <li><svg class="ic-svg"><use href="#ic-sparkle"/></svg><span>You strengthened your mindset.</span></li>
-        <li><svg class="ic-svg"><use href="#ic-flag"/></svg><span>Most importantly, you proved to yourself that you are capable of following through.</span></li>
-        <li><svg class="ic-svg"><use href="#ic-shield"/></svg><span><span class="hi">That is something no one can take away from you.</span></span></li>
-      </ul>
-      <div style="margin-top:14px"><a href="#join" class="btn btn-peach">I'm Ready &#8594;</a></div>
+      <div class="hero-copy">
+        <div class="hl hl-lg"><svg class="ic-svg"><use href="#ic-trophy"/></svg><span>Congratulations! You did it.</span></div>
+        <div class="hl hl-md"><svg class="ic-svg"><use href="#ic-check"/></svg><span>Over the last 30 days, you made a promise to yourself—and you kept it!</span></div>
+        <p class="hero-para">You planned ahead. You moved your body. You fueled yourself intentionally. You strengthened your mindset.</p>
+        <div class="hl hl-sm"><svg class="ic-svg"><use href="#ic-flag"/></svg><span>Most importantly, you proved to yourself that you are capable of following through.</span></div>
+        <div class="hl hl-sm"><svg class="ic-svg"><use href="#ic-shield"/></svg><span>That is something no one can take away from you.</span></div>
+      </div>
+      <div style="margin-top:26px"><a href="#join" class="btn btn-peach">I'm Ready &#8594;</a></div>
     </div>
   </section>
 
