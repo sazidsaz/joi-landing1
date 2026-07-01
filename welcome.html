@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ride High with Joi Schweitzer — Cleared for Take-Off</title>
+
+<!--
+  ===========================================================================
+  IMAGES TO REPLACE  (marked in the HTML with  <!-- REPLACE: ... -->
+  The photos below use labeled placeholders because the live site's images
+  could not be fetched. Swap each `src` for the real image URL:
+    1. Hero background photo   .hero  (background-image in CSS)
+    2. Mentor portrait         #mentor img
+    3. Two stacked photos      #rise .big / .small
+    4. "Who this is for" photo  #who img
+    5. Two pricing photos       #price .couch / .pilot
+  ===========================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1A1A;
+    --peach:#EFB49C;
+    --peach-dk:#E5A184;
+    --mint:#BCE3DB;
+    --mint-2:#CDEAE3;
+    --cream:#F4EEE5;
+    --gray:#F1F1F1;
+    --muted:#4a4a4a;
+
+    --display:'Playfair Display', Georgia, serif;
+    --body:'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--body);color:var(--ink);background:#fff;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-weight:300;}
+  img{max-width:100%;display:block;}
+
+  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(22px,5vw,56px);}
+
+  h1,h2,h3{font-family:var(--display);line-height:1.1;font-weight:800;}
+  h1{font-size:clamp(40px,6vw,76px);}
+  h2{font-size:clamp(30px,4.6vw,58px);}
+  p{font-size:clamp(15.5px,1.5vw,18.5px);}
+
+  section{padding:clamp(70px,9vw,120px) 0;position:relative;}
+
+  /* BUTTONS */
+  .btn{display:inline-block;font-family:var(--body);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:15px;text-decoration:none;padding:19px 44px;border-radius:999px;background:var(--peach);color:var(--ink);transition:transform .25s ease,background .25s ease,box-shadow .25s ease;border:0;cursor:pointer;box-shadow:0 10px 26px -14px rgba(0,0,0,.4);}
+  .btn:hover{background:var(--peach-dk);transform:translateY(-2px);}
+  .btn.two{line-height:1.15;text-align:center;}
+  .btn.two small{display:block;font-size:11.5px;font-weight:500;letter-spacing:.14em;opacity:.85;margin-top:3px;}
+  .btn.normal{text-transform:none;letter-spacing:.01em;font-weight:600;font-size:17px;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;
+    background:
+      linear-gradient(90deg, rgba(18,14,12,.82) 0%, rgba(18,14,12,.55) 42%, rgba(18,14,12,.18) 72%, rgba(18,14,12,.05) 100%),
+      /* REPLACE: hero background photo (Joi in pilot uniform, kitchen) */
+      url('https://placehold.co/1920x1280/2b241f/6b5c50?text=+') center/cover no-repeat;
+  }
+  .hero-logo{position:absolute;top:clamp(22px,3vw,40px);left:clamp(22px,4vw,56px);height:clamp(70px,8vw,104px);width:auto;}
+  .hero-content{margin-left:auto;max-width:760px;text-align:right;}
+  .hero-content h1{color:#fff;text-transform:uppercase;letter-spacing:.01em;}
+  .hero-content .sub{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.8vw,34px);text-transform:uppercase;margin-top:18px;line-height:1.2;}
+  .hero-content .desc{font-size:clamp(16px,1.8vw,21px);font-weight:300;margin:22px 0 34px;max-width:540px;margin-left:auto;color:rgba(255,255,255,.92);}
+  @media (max-width:820px){
+    .hero{text-align:center;background:linear-gradient(180deg, rgba(18,14,12,.72), rgba(18,14,12,.72)), url('https://placehold.co/1920x1280/2b241f/6b5c50?text=+') center/cover no-repeat;}
+    .hero-content{text-align:center;margin:0 auto;padding-top:90px;}
+    .hero-content .desc{margin-left:auto;margin-right:auto;}
+    .hero-logo{left:50%;transform:translateX(-50%);}
+  }
+
+  /* MENTOR */
+  #mentor{padding:0 0 clamp(70px,9vw,120px);background:#fff;}
+  .mint-band{background:var(--mint);height:clamp(150px,20vw,210px);width:100%;}
+  .mentor-card{
+    background:var(--cream);max-width:1150px;margin:calc(-1 * clamp(90px,12vw,140px)) auto 0;
+    padding:clamp(34px,4vw,58px);border-radius:2px;
+    display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,4vw,52px);align-items:center;
+    box-shadow:0 30px 70px -50px rgba(0,0,0,.5);
+  }
+  .mentor-card img{width:100%;height:100%;object-fit:cover;box-shadow:0 14px 40px -26px rgba(0,0,0,.6);}
+  .mentor-card .head{text-align:center;margin-bottom:22px;}
+  .mentor-card h2{line-height:1.06;}
+  .mentor-card p{color:#2b2b2b;}
+  .mentor-card p+p{margin-top:20px;}
+  @media (max-width:820px){ .mentor-card{grid-template-columns:1fr;} .mentor-card .imgwrap{max-width:420px;margin:0 auto;} }
+
+  /* RISE */
+  .rise-title{text-align:center;background:#fff;padding:clamp(50px,7vw,90px) 0 0;}
+  .rise-title h2{text-transform:uppercase;font-weight:900;letter-spacing:.005em;font-size:clamp(30px,5.4vw,66px);}
+  #rise{background:linear-gradient(120deg,#CDEAE3 0%,#E9E1EC 50%,#F3DBD3 100%);}
+  #rise .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,64px);align-items:center;}
+  #rise h2{font-weight:800;font-size:clamp(30px,4.4vw,54px);line-height:1.12;}
+  #rise p{color:#2b2b2b;margin-top:20px;max-width:560px;}
+  #rise .cta{margin-top:34px;}
+  .stack-imgs{position:relative;min-height:clamp(360px,44vw,560px);}
+  .stack-imgs .big{position:absolute;right:0;top:0;width:74%;border:7px solid #fff;box-shadow:0 26px 60px -34px rgba(0,0,0,.6);}
+  .stack-imgs .small{position:absolute;left:0;bottom:6%;width:46%;border:7px solid #fff;box-shadow:0 26px 60px -34px rgba(0,0,0,.6);}
+  @media (max-width:820px){
+    #rise .grid{grid-template-columns:1fr;}
+    .stack-imgs{min-height:0;display:flex;gap:14px;justify-content:center;}
+    .stack-imgs .big,.stack-imgs .small{position:static;width:48%;}
+  }
+
+  /* WHO */
+  #who{background:#fff;text-align:center;}
+  #who h2{margin-bottom:clamp(36px,5vw,60px);}
+  #who .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,64px);align-items:center;text-align:left;}
+  .stars{list-style:none;}
+  .stars li{display:flex;gap:16px;align-items:flex-start;padding:14px 0;font-size:clamp(16px,1.7vw,19px);color:#2b2b2b;}
+  .stars .st{color:var(--peach);flex:0 0 auto;font-size:20px;line-height:1.5;}
+  #who .cta{margin-top:30px;}
+  #who .photo{width:100%;filter:grayscale(1);box-shadow:0 24px 60px -40px rgba(0,0,0,.6);}
+  @media (max-width:820px){ #who .grid{grid-template-columns:1fr;} #who .photo{max-width:520px;margin:0 auto;} }
+
+  /* PRICE */
+  #price{background:var(--gray);}
+  #price .grid{display:grid;grid-template-columns:.9fr 1.35fr .9fr;gap:clamp(26px,3.5vw,50px);align-items:center;}
+  #price .couch{width:100%;box-shadow:0 24px 60px -40px rgba(0,0,0,.55);}
+  #price .pilot{width:100%;align-self:end;box-shadow:0 24px 60px -40px rgba(0,0,0,.55);}
+  #price .mid{text-align:center;}
+  #price .eyebrow{font-family:var(--display);letter-spacing:.18em;text-transform:uppercase;font-size:clamp(12px,1.4vw,15px);color:#555;font-weight:600;}
+  #price .big-price{font-family:var(--display);font-weight:800;font-size:clamp(48px,7vw,92px);line-height:1;margin:14px 0 4px;}
+  #price .big-price .old{text-decoration:line-through;text-decoration-thickness:3px;opacity:.85;margin-right:8px;}
+  #price .mid p{color:#333;margin-top:22px;}
+  #price .mid p.warn{font-weight:700;color:var(--ink);}
+  #price .mid .btn{margin-top:32px;}
+  @media (max-width:900px){
+    #price .grid{grid-template-columns:1fr;max-width:620px;margin:0 auto;}
+    #price .couch,#price .pilot{max-width:440px;margin:0 auto;}
+    #price .mid{order:-1;}
+  }
+
+  /* FOOTER */
+  footer{background:#111;color:rgba(242,242,242,.55);text-align:center;padding:60px 0 50px;}
+  footer img{height:66px;width:auto;margin:0 auto 22px;}
+  footer .socials{display:flex;gap:22px;justify-content:center;margin:6px 0 26px;}
+  footer .socials a{color:var(--peach);transition:color .2s ease;}
+  footer .socials a:hover{color:#fff;}
+  footer .legal{font-family:var(--body);font-size:12px;letter-spacing:.03em;line-height:2;font-weight:300;}
+
+  /* REVEAL */
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease;}
+  .js .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){ .js .reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+<script>document.documentElement.className+=' js';</script>
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- REPLACE: hero background photo is set via CSS (.hero background-image) -->
+    <img class="hero-logo" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/Sdx4lqu7HH8yhHznavCZ/media/6129ff14-e45b-488d-9463-3c513db0ded6.webp" alt="Ride High">
+    <div class="wrap">
+      <div class="hero-content reveal">
+        <h1>Ride High with Joi Schweitzer</h1>
+        <p class="sub">Cleared for Take-Off: Permission to Rise</p>
+        <p class="desc">A mentorship program for women who are ready to live out their calling, fuel their passions, and soar towards dreams.</p>
+        <a href="#price" class="btn">Enroll Now &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTOR -->
+  <section id="mentor">
+    <div class="mint-band"></div>
+    <div class="wrap">
+      <div class="mentor-card reveal">
+        <div class="imgwrap">
+          <!-- REPLACE: mentor portrait (Joi in magenta suit) -->
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/Sdx4lqu7HH8yhHznavCZ/media/d3328c27-2181-498f-a1ab-bfb58aa3b1eb.jpeg" alt="Joi Schweitzer">
+        </div>
+        <div>
+          <div class="head">
+            <h2>Your Mentor<br>Joi Schweitzer</h2>
+          </div>
+          <p>Joi is one of the few Black female airline pilots in the world, with 20+ years of flying experience, including over 10 years as a commercial pilot. Outside the flight deck, she's also an actress (you may have spotted her on Netflix!), entrepreneur, wife, and proud mom of two.</p>
+          <p>Joi encourages women to step into their calling, live with purpose, and create a legacy that lasts. Through her inspiring insights and practical advice, she guides women on how to find real joy, build a healthy lifestyle, and grow stronger in faith so they can soar higher, live freer, and make an impact that truly matters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISE TITLE -->
+  <div class="rise-title">
+    <div class="wrap reveal"><h2>Cleared for Take-Off: Permission to Rise</h2></div>
+  </div>
+
+  <!-- RISE -->
+  <section id="rise">
+    <div class="wrap">
+      <div class="grid">
+        <div class="reveal">
+          <h2>You've done the work. You've played by the rules. Now, It's Time to Fly Your Own Route—with Faith, Freedom, and Fierce Belief.</h2>
+          <p>One of the few Black female airline pilots in the world, Joi has flown jets across the country and now mentors women across industries on how to take flight in their faith, purpose and goals.</p>
+          <p>She's a sought-after speaker, transformational mentor, and founder of Cleared for Take-off—a belief first lifestyle framework helping women break cycles, reclaim identity, and soar. You weren't meant to climb alone. Let's rise together!</p>
+          <div class="cta"><a href="#price" class="btn two">I'm Ready<small>Enroll Now</small></a></div>
+        </div>
+        <div class="stack-imgs reveal">
+          <!-- REPLACE: pilot photo (large) -->
+          <img class="big" src="https://placehold.co/520x640/1f2a3a/8ea3bd?text=Joi+—+Pilot" alt="Joi Schweitzer in pilot uniform">
+          <!-- REPLACE: podcast / neon-sign photo (small overlap) -->
+          <img class="small" src="https://placehold.co/440x520/e8d7cf/9b8579?text=Joi+—+Ride+High" alt="Joi Schweitzer recording">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section id="who">
+    <div class="wrap">
+      <h2 class="reveal">Who This Is For:</h2>
+      <div class="grid reveal">
+        <div>
+          <ul class="stars">
+            <li><span class="st">&#9733;</span><span>The woman who's tired of talking herself out of the thing she knows she's meant to do— who's done entertaining doubt, shrinking in rooms she was born to lead, and rehearsing reasons why she's not ready.</span></li>
+            <li><span class="st">&#9733;</span><span>The woman who's ready to trade confusion for clarity...and comfort for calling...even if it means letting go of the familiar to finally pursue what sets her soul on fire!</span></li>
+            <li><span class="st">&#9733;</span><span>The woman who's building something bigger than herself... a legacy, a message, a movement—but needs structure, support, and strategy to take flight without burning out.</span></li>
+          </ul>
+          <div class="cta"><a href="#price" class="btn normal">Yes, I want to enroll now!</a></div>
+        </div>
+        <div>
+          <!-- REPLACE: black & white photo (woman with coffee mug) -->
+          <img class="photo" src="https://placehold.co/720x600/cfcfcf/6b6b6b?text=Photo" alt="Woman reflecting with a cup of coffee">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section id="price">
+    <div class="wrap">
+      <div class="grid">
+        <!-- REPLACE: photo of Joi writing on couch -->
+        <img class="couch" src="https://placehold.co/440x560/d9d4cd/7a736a?text=Joi+—+Journaling" alt="Joi Schweitzer journaling">
+        <div class="mid reveal">
+          <p class="eyebrow">This Is Your Permission to Rise</p>
+          <h2 class="big-price"><span style="font-family:var(--display);font-weight:800;">Start today for just</span></h2>
+          <div class="big-price"><span class="old">$47</span>$37</div>
+          <p>No overwhelm. No overthinking. Just a proven, powerful process to help you move forward with unshakeable belief, courage, and undeniable confidence.</p>
+          <p>You're not "too late" you're not behind, you're being realigned—for wellness in your body, peace in your spirit, and power in your next step!</p>
+          <p class="warn">If you don't trust your clarity now… you will keep going around in circles of confusion, exhaustion, and delay… Even though you were built to SOAR!</p>
+          <a href="#checkout" class="btn normal">Yes, I want to enroll now!</a>
+        </div>
+        <!-- REPLACE: photo of Joi in pilot uniform smiling -->
+        <img class="pilot" src="https://placehold.co/440x520/26303f/8ea3bd?text=Joi+—+Pilot" alt="Joi Schweitzer smiling in pilot uniform">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/Sdx4lqu7HH8yhHznavCZ/media/6129ff14-e45b-488d-9463-3c513db0ded6.webp" alt="Ride High">
+      <div class="socials">
+        <a href="https://facebook.com" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="https://www.instagram.com/thejoischweitzer/" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.youtube.com/@joiridehigh" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM9.8 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></a>
+        <a href="https://www.linkedin.com/in/joischweitzer/" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      </div>
+      <p class="legal">JoiRideHigh, LLC &nbsp;·&nbsp; PMB# 135 4480H South Cobb Dr, Smyrna, Georgia 30080<br>©JoiRideHigh, LLC 2026 &nbsp;·&nbsp; All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var els=document.querySelectorAll('.reveal');
+      if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+      var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.14});
+      els.forEach(function(e){io.observe(e);});
+    })();
+  </script>
+</body>
+</html>
